@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {clone, difference, concat, indexOf, remove} from 'lodash';
 
 @Component({
@@ -10,10 +10,13 @@ export class GenerateOrderComponent{
 
   constructor() {
   }
+
+  @Output() finalDraftOrder = new EventEmitter<Array<string>>();
+
   teams = ['Brian', 'Rich', 'Liam', 'Bobby','Johnny','Kevin', 'Matt', 'DJ', 'Carp', 'Jason'];
   oddSets = [[25, 18, 14, 12.5, 10.5, 7, 5, 4, 3, 1],
             [20, 17, 15.5, 13.5, 11, 8, 5.5, 4.5, 3.5, 1.5],
-            [17, 15, 145, 13.5, 12.5, 9.5, 7, 5, 4, 2],
+            [17, 15, 14.5, 13.5, 12.5, 9.5, 7, 5, 4, 2],
             [14, 12, 13.5, 11.5, 11.5, 11.5, 8, 6, 7, 5]];
   
   weighted_random(items: any[], weights: any[]) {
@@ -54,17 +57,17 @@ export class GenerateOrderComponent{
     console.log(firstPick);
     let secondPickTeams = difference(clone(this.teams),draftOrder);
     console.log(secondPickTeams);
-    this.distribute_odds(firstPick, this.oddSets[1])
-    this.distribute_odds(firstPick, this.oddSets[2])
-    this.distribute_odds(firstPick, this.oddSets[3])
+    this.distribute_odds(firstPick, this.oddSets[1]);
+    this.distribute_odds(firstPick, this.oddSets[2]);
+    this.distribute_odds(firstPick, this.oddSets[3]);
 
     let secondPick = this.weighted_random(secondPickTeams, this.oddSets[1]);
     console.log(secondPick);
     draftOrder.push(secondPick);
     let thirdPickTeams = difference(clone(this.teams),draftOrder);
     console.log(thirdPickTeams);
-    this.distribute_odds(secondPick, this.oddSets[2])
-    this.distribute_odds(secondPick, this.oddSets[3])
+    this.distribute_odds(secondPick, this.oddSets[2]);
+    this.distribute_odds(secondPick, this.oddSets[3]);
 
     let thirdPick = this.weighted_random(thirdPickTeams, this.oddSets[2]);
     console.log(thirdPick);
@@ -81,7 +84,7 @@ export class GenerateOrderComponent{
     let finalTeamsRemaining = difference(clone(this.teams),draftOrder);
     console.log(concat(draftOrder, finalTeamsRemaining));
 
-    return concat(draftOrder, finalTeamsRemaining);
+    this.finalDraftOrder.emit(concat(draftOrder, finalTeamsRemaining));
   }
 
 }

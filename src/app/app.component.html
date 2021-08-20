@@ -1,1 +1,42 @@
-<app-generate-order></app-generate-order>
+<div class = "container-fluid">
+    <div class = "jumbotron">
+    </div>
+    <div class="header">
+        The League Draft Choice Lottery
+    </div>
+    <div style="text-align: center; padding: 2%;">
+        <app-generate-order (finalDraftOrder)="createOrder($event)"> 
+        </app-generate-order>
+    </div>
+    
+    
+    <div class="row">
+        <div class = "card-module col-md-6">
+            <th>Last Year Finish (Worst to First)</th>
+            <div class = "draftCard-firm">1. Brian</div>
+            <div class = "draftCard-firm">2. Rich</div>
+            <div class = "draftCard-firm">3. Liam</div>
+            <div class = "draftCard-firm">4. Bobby</div>
+            <div class = "draftCard-firm">5. Johnny</div>
+            <div class = "draftCard-firm">6. Kevin</div>
+            <div class = "draftCard-firm">7. Matt</div>
+            <div class = "draftCard-firm">8. DJ</div>
+            <div class = "draftCard-firm">9. Carp</div>
+            <div class = "draftCard-firm">10. Jason</div>
+        </div>
+        <div class = "card-module col-md-6">
+            <th>Draft Order</th>
+            <div class="draftCard actualOrder" *ngFor="let team of order">
+                <div class="draftCard-inner">
+                    <div class="draftCard-front">
+                        
+                    </div>
+                    <div class = "draftCard-back">
+                        {{team}}
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>
+

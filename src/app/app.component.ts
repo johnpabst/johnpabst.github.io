@@ -8,6 +8,13 @@ import { GenerateOrderComponent } from './generate-order/generate-order.componen
 })
 export class AppComponent {
   title = 'fantasyDraft';
+
+  order:Array<string> = [];
+
+
+  createOrder(teams: Array<string>){
+    this.order = teams;
+  }
 }
 
 
