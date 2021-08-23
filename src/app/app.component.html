@@ -4,35 +4,97 @@
     <div class="header">
         The League Draft Choice Lottery
     </div>
-    <div style="text-align: center; padding: 2%;">
-        <app-generate-order (finalDraftOrder)="createOrder($event)"> 
-        </app-generate-order>
-    </div>
     
-    
-    <div class="row">
-        <div class = "card-module col-md-6">
-            <th>Last Year Finish (Worst to First)</th>
-            <div class = "draftCard-firm">1. Brian</div>
-            <div class = "draftCard-firm">2. Rich</div>
-            <div class = "draftCard-firm">3. Liam</div>
-            <div class = "draftCard-firm">4. Bobby</div>
-            <div class = "draftCard-firm">5. Johnny</div>
-            <div class = "draftCard-firm">6. Kevin</div>
-            <div class = "draftCard-firm">7. Matt</div>
-            <div class = "draftCard-firm">8. DJ</div>
-            <div class = "draftCard-firm">9. Carp</div>
-            <div class = "draftCard-firm">10. Jason</div>
+    <div class="col-md-12 justify-content-center" style="width:100%; text-align: center;">
+        <p style="color:red">Red indicates fall in order</p>
+        <p style="color:green">Green indicates rise in order</p>
+        <div class = "draftBoard">
+            <div></div>
+
+            <table style="width:100%;">
+                <tbody>
+                <tr style="font-weight: bold;">
+                <td></td>
+                <td id="Brian-col">10. Brian</td>
+                <td id="Rich-col">9. Rich</td>
+                <td id="Liam-col">8. Liam</td>
+                <td id="Bobby-col">7. Bobby</td>
+                <td id="Johnny-col">6. Johnny </td>
+                <td id="Kevin-col">5. Kevin</td>
+                <td id="Matt-col">4. Matt</td>
+                <td id="DJ-col">3. DJ</td>
+                <td id="Carp-col">2. Carp</td>
+                <td id="Jason-col">1. Jason</td>
+                </tr>
+                <tr>
+                <td><b>First Choice</b></td>
+                <td> 25%</td>
+                <td> 18%</td>
+                <td> 14%</td>
+                <td> 12.5%</td>
+                <td> 10.5%</td>
+                <td> 7%</td>
+                <td> 5%</td>
+                <td> 4%</td>
+                <td> 3%</td>
+                <td> 1%</td>
+                </tr>
+                <tr>
+                <td><b>Second Choice</b></td>
+                <td> 20%</td>
+                <td > 17%</td>
+                <td> 15.5%</td>
+                <td> 13.5%</td>
+                <td> 11%</td>
+                <td> 8%</td>
+                <td> 5.5%</td>
+                <td> 4.5%</td>
+                <td> 3.5%</td>
+                <td> 1.5%</td>
+                </tr>
+                <tr>
+                <td><b>Third Choice</b></td>
+                <td> 17%</td>
+                <td> 15%</td>
+                <td> 14.5%</td>
+                <td> 13.5%</td>
+                <td> 12.5%</td>
+                <td> 9.5%</td>
+                <td> 7%</td>
+                <td> 5%</td>
+                <td> 4%</td>
+                <td> 2%</td>
+                </tr>
+                <tr>
+                <td><b>Fourth Choice</b></td>
+                <td> 14%</td>
+                <td> 12%</td>
+                <td> 13.5%</td>
+                <td> 11.5%</td>
+                <td> 11.5%</td>
+                <td> 11.5%</td>
+                <td> 8%</td>
+                <td> 6%</td>
+                <td> 7%</td>
+                <td> 5%</td>
+                </tr>
+                </tbody>
+                </table>
         </div>
-        <div class = "card-module col-md-6">
-            <th>Draft Order</th>
-            <div class="draftCard actualOrder" *ngFor="let team of order">
-                <div class="draftCard-inner">
+
+        <div style="text-align: center; padding: 2%;">
+            <app-generate-order (finalDraftOrder)="createOrder($event)"> 
+            </app-generate-order>
+        </div>
+        <div class = "card-module col-md-12">
+            <h1>Draft Choice Order</h1>
+            <div class="draftCard actualOrder" *ngFor="let team of order;let indexOfElement=index;">
+                <div id="{{team}}" class="draftCard-inner" (click)="flip(team,indexOfElement)">
                     <div class="draftCard-front">
-                        
+                        {{1+indexOfElement}}
                     </div>
-                    <div class = "draftCard-back">
-                        {{team}}
+                    <div class = "draftCard-back" style="background-image: url(./assets/teams/{{team}}.jpg); background-size:cover;">
+                        
                     </div>
                 </div>
             </div>

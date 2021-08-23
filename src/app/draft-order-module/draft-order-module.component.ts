@@ -12,5 +12,5 @@ export class DraftOrderModuleComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  
 }

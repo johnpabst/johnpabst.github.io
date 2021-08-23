@@ -1,13 +1,28 @@
+td{
+    border: 1px solid;
+    padding-left:5px;
+    padding-right:5px;
+}
+
+.draftBoard{
+    padding-top:2%;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    justify-content: center;
+}
+
 .container-fluid{
-    padding:5%;
+    padding:1%;
+    text-align: center;
 }
 
 .jumbotron{
     background-image: url("../assets/draftLotto.png");
-    height:300px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-bottom:1px solid #ff6a00
+    height:200px;
+    background-size: contain;
 }
 .header{
     font-size: 54px;
@@ -15,24 +30,30 @@
     text-align:center;
 }
 .card-module{
-    line-height: 200px;
+    padding-top:1%;
+    padding-bottom:1%;
+    line-height: 100px;
     text-align: center;
+    align-items: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
 }
-.draftCard-firm{
-    background-color: #89CFF0;
-    width: 300px;
-    height: 200px;
-    border: 1px solid #fff;
-    border-radius: 10px;
-    margin: 2%;
-}
+
 .draftCard{
+    float:left;
     background-color: transparent;
-    width: 300px;
+    width: 200px;
     height: 200px;
     border: 1px solid #fff;
     border-radius: 10px;
-    margin: 2%;
+    margin: 1%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: all 600ms;
+    transition: all 600ms;
+    z-index: 20;  
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
 
@@ -40,28 +61,32 @@
     position: relative;
     width: 100%;
     height: 100%;
+    border-radius: 10px;
     text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
   }
 
-.draftCard:active .draftCard-inner {
+/* .draftCard:hover .draftCard-inner {
     transform: rotateY(180deg);
-}
+} */
 
 /* Position the front and back side */
 .draftCard-front, .draftCard-back {
     position: absolute;
     width: 100%;
     height: 100%;
+    border-radius: 10px;
     -webkit-backface-visibility: hidden; /* Safari */
     backface-visibility: hidden;
   }
 
   /* Style the front side (fallback if image is missing) */
 .draftCard-front {
-    background-color: #bbb;
-    color: black;
+    font-family: Impact;
+    font-size: 54px;
+    background-color: rgb(5, 33, 109);
+    color: rgb(180, 178, 48);
   }
   
   /* Style the back side */
@@ -69,4 +94,5 @@
     background-color: dodgerblue;
     color: white;
     transform: rotateY(180deg);
+    
 }
