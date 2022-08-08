@@ -17,7 +17,7 @@ export class AppComponent {
   }
 
   flip(cardID:string, indexOfElement:number){
-    let originalOrder = ['Brian', 'Rich', 'Liam', 'Bobby','Johnny','Kevin', 'Matt', 'DJ', 'Carp', 'Jason'];
+    let originalOrder = ['Kevin', 'Jason', 'Liam', 'Brian','Rich','Carp', 'Matt', 'DJ', 'Bobby', 'Johnny'];
     let originalIndex = indexOf(originalOrder, cardID);
     var element:HTMLElement = document.getElementById(cardID);
     if (element.className === "draftCard-inner") {
@@ -29,12 +29,12 @@ export class AppComponent {
       }
     }
 
-    if (indexOfElement < originalIndex){ debugger;
-      var bruh:HTMLElement = document.getElementById(cardID+'-col'); debugger;
+    if (indexOfElement < originalIndex){ 
+      var bruh:HTMLElement = document.getElementById(cardID+'-col');
       bruh.style.backgroundColor = "#90EE90";
     }
     if (indexOfElement > originalIndex){ 
-      var bruh:HTMLElement = document.getElementById(cardID+'-col'); debugger;
+      var bruh:HTMLElement = document.getElementById(cardID+'-col');
       bruh.style.backgroundColor = "#ffcccb";
     }
     
