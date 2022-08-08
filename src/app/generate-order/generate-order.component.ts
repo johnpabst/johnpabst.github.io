@@ -66,7 +66,7 @@ export class GenerateOrderComponent{
       
     }
       
-    let teams = ['Brian', 'Rich', 'Liam', 'Bobby','Johnny','Kevin', 'Matt', 'DJ', 'Carp', 'Jason'];
+    let teams = ['Kevin', 'Jason', 'Liam', 'Brian','Rich','Carp', 'Matt', 'DJ', 'Bobby', 'Johnny'];
     let oddSets = [[25, 18, 14, 12.5, 10.5, 7, 5, 4, 3, 1],
               [20, 17, 15.5, 13.5, 11, 8, 5.5, 4.5, 3.5, 1.5],
               [17, 15, 14.5, 13.5, 12.5, 9.5, 7, 5, 4, 2],
